@@ -31,6 +31,9 @@ chown tailon:tailon /var/log/tailon.log
 # Create the starting script
 echo -e "\n*** Creating the starting script."
 cat << EOF >> ${TPATH}/start.sh
+#! /bin/bash
+# Engie Tawfik - 20180726
+# A script to start tailon - https://github.com/gvalkov/tailon
 ${TPATH}/tailon -b "0.0.0.0:5000" "alias=Tailon,group=Tailon,/var/log/tailon*" &> /var/log/tailon.log &
 EOF
 chmod 750 ${TPATH}/start.sh
